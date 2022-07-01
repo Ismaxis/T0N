@@ -1,10 +1,25 @@
+const head = ["#", "Check", "Name", "Cost"];
+const createThead = (parent) => {
+    var thead = document.createElement('thead');
+    parent.appendChild(thead);
+    var tr = document.createElement('tr');
+    thead.appendChild(tr);
+    for(var i = 0; i < head.length; i++)
+    {
+        var th = document.createElement('th');
+        th.scope ='col';
+        th.innerHTML = head[i];
+        tr.appendChild(th);
+    }
+}
+
 const data = [
     ["Dildos", "300$"],
     ["Umbrella handle", "150$"],
     ["Stiff cocks", "200$"]
 ]
 
-const createTable = () => {
+const createInvestorTable = () => {
     var table = document.createElement('table');
     document.getElementById('tables').appendChild(table);
     table.className = "table";
@@ -40,17 +55,3 @@ const createTable = () => {
     }
 }
 
-const head = ["#", "Check", "Name", "Cost"];
-const createThead = (parent) => {
-    var thead = document.createElement('thead');
-    parent.appendChild(thead);
-    var tr = document.createElement('tr');
-    thead.appendChild(tr);
-    for(var i = 0; i < 4; i++)
-    {
-        var th = document.createElement('th');
-        th.scope ='col';
-        th.innerHTML = head[i];
-        tr.appendChild(th);
-    }
-}

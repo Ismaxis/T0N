@@ -7,6 +7,7 @@
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <title>Document</title>
+        <script src="../js/workerTableCreator.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-light">
@@ -28,33 +29,9 @@
             </div>
         </nav>
 
-        <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
-                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
-                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
-                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
-                    </tr>
-                </tbody>
-        </table>
-
+        <div id="chat">
+            <button onclick="createWorkerTable()">add</button>
+        </div>
         <button type="button" class="btn btn-warning">Add new table</button>
         <button type="button" class="btn btn-warning">Change table</button>
 
