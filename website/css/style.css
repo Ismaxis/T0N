@@ -6,8 +6,10 @@
     --color5: #EDF5E1;
 }
 
+body{
+    height: 100%;
+}
 .warrper{
-    min-height: 100%;
     display: grid;
     grid-template: minmax(75px, auto) 1fr minmax(50px, auto) / 1fr;
     grid-template-areas: "header" "main" "footer";
