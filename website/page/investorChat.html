@@ -7,6 +7,7 @@
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <title>Document</title>
+        <script src="../js/tableCreator.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-light">
@@ -28,39 +29,12 @@
             </div>
         </nav>
 
-        <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Check</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></td>
-                        <td>Dildos</td>
-                        <td>300$</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></td>
-                        <td>Brush stick handle</td>
-                        <td>50$</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></td>
-                        <td>Fishing rod handle</td>
-                        <td>100$</td>
-                    </tr>
-                </tbody>
-        </table>
-
+        <div id="tables">
+        </div>
         <button type="button" class="btn btn-warning">Discuss</button>
-
-        <script src="../js/bootstrap.bundle.min.js"></script>
+        <button onclick="createTable()">Add</button>
+        <div class="navbar fixed-bottom">Nutcrackers</div>
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
-</html>
+  </html>
