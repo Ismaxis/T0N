@@ -4,12 +4,13 @@ html {
     width: 100%;
 }
 
-body {
+body{
     margin: 0px;
     min-height: 100%;
     width: 100%;
 }
 
-.fixed-bottom{
-    position: relative;
+.text-marg{
+    padding-left: 50px;
+    padding-right: 50px;
 }
