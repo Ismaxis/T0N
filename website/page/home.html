@@ -9,26 +9,23 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="header">
-        <form action="home.html">
-            <button class="btn home-button">HOME</button>
-        </form>
-    </header>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <form action="workerChat.html" >
-                    <button class="btn chat-button">Worker chat</button>
-                </form>
-            </div>
-            <div class="col-6">
-                <form action="investorChat.html" >
-                    <button class="btn chat-button">Investor chat</button>
-                </form>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Cost Estimate</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="investorChat.html">Investor-page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="workerChat.html">Worker-page</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-
+    </nav>
 </body>
 </html>

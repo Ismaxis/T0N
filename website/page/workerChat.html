@@ -1,46 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <div class="warrper">
-        <header class="header">
-            <form action="../page/home.html">
-                <button class="btn home-button">HOME</button>
-            </form>
-        </header>
-        
-        
-        <main class="chat">
-            <div class="chat-bar">
-                <nav class="chat-bar-menu">
-                    <button class="btn chat-button-worker">Investor 1</button>
-                </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <title>Document</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Cost Estimate</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="investorChat.html">Investor-page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="workerChat.html">Worker-page</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-            <div class="chat-massage">
-                <div class="chat-worker1">
-                    <div class="chat-table">1. Table</div>
-                    <div class="chat-table">2. Table</div>
-                    <div class="chat-table">3. New Table  
-                        <div><button class="btn">Show table</button></div>
-                    </div>
-                <div><button class="btn">Create new table</button></div>
-            </div>
-        </main>
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
+                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
+                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
+                        <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></td>
+                    </tr>
+                </tbody>
+        </table>
 
+        <button type="button" class="btn btn-warning">Add new table</button>
+        <button type="button" class="btn btn-warning">Change table</button>
 
-        <footer class="footer">
-            <div>Nutcrackers</div>
-        </footer>
-    </div>
-
-    <script src="../js/bootstrap.bundle.min.js"></script>
-</body>
+        <div class="navbar fixed-bottom">Nutcrackers</div>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

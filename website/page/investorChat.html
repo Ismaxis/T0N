@@ -1,118 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <div class="warrper">
-        <header class="header border-bottom">
-            <form action="./home.html">
-                <button class="btn home-button">HOME</button>
-            </form>
-        </header>
-        
-        
-        <main class="chat">
-            <div class="chat-bar">
-                <div class="chat-bar-menu">
-                    <button class="chat-button-user">Worker 1</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <title>Document</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Cost Estimate</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="investorChat.html">Investor-page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="workerChat.html">Worker-page</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </nav>
 
-            <div class="chat-massage">
-                <div class="chat-worker1">
-                    <ol>
-                        <li class="chat-table"><button type="button" class="chat-table-button btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Table</button></li>
-                        <li class="chat-table"><button type="button" class="chat-table-button btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Table</button></li>
-                        <li class="chat-table"><button type="button" class="btn chat-table-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Table</button></li>
-                    </ol>
-                </div>
-                <div><button class="btn">Discuss</button></div>
-            </div>
-        </main>
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Check</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></td>
+                        <td>Dildos</td>
+                        <td>300$</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></td>
+                        <td>Brush stick handle</td>
+                        <td>50$</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></td>
+                        <td>Fishing rod handle</td>
+                        <td>100$</td>
+                    </tr>
+                </tbody>
+        </table>
 
+        <button type="button" class="btn btn-warning">Discuss</button>
 
-        <footer class="footer">
-            <div>Nutcrackers</div>
-        </footer>
-    </div>
-
-
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <ol class="table-investor">
-                        <li>
-                            <div class="row align-items-start">
-                                <div class="col-6">
-                                    <div>Я сделаю чет</div>
-                                </div>
-                                <div class="col-3">
-                                    <div>50 TON</div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="ask">
-                                        <input class="answer-yes" type="radio" name="answer1" value="yes">
-                                        <input class="answer-no" type="radio" name="answer1" value="no">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-start">
-                                <div class="col-6">
-                                    <div>Я сделаю чет</div>
-                                </div>
-                                <div class="col-3">
-                                    <div>50 TON</div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="ask">
-                                        <input class="answer-yes" type="radio" name="answer2" value="yes">
-                                        <input class="answer-no" type="radio" name="answer2" value="no">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-start">
-                                <div class="col-6">
-                                    <div>Я сделаю чет</div>
-                                </div>
-                                <div class="col-3">
-                                    <div>50 TON</div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="ask">
-                                        <input class="answer-yes" type="radio" name="answer3" value="yes">
-                                        <input class="answer-no" type="radio" name="answer3" value="no">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save change</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="../js/bootstrap.bundle.min.js"></script>
-</body>
+        <div class="navbar fixed-bottom">Nutcrackers</div>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
