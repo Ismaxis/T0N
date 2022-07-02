@@ -46,6 +46,7 @@ const createWorkerTable = () => {
     }
     div = document.createElement('div');
     div.id = counter;
+    div.style = "margin-bottom: 20px";
     counter += 1;
     document.getElementById("chat").appendChild(div);
     var table = document.createElement('table');
@@ -64,6 +65,7 @@ const createWorkerTable = () => {
     button.onclick = () => {
         createRow(tbody);
     }
+    button.className = "btn btn-warning";
 }
 
 const disablePrev = (prev) => {
