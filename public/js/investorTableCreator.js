@@ -1,0 +1,94 @@
+
+
+window.onload = () => {createInvestorChat()}
+
+const createInvestorChat = () => {
+    selector = "../tables/main.csv"
+
+    const input = document.querySelector(selector)
+  return new Promise((resolve, reject) => {
+    const read = e => {
+      const reader = new FileReader()
+      reader.onload = () => resolve({
+        contents: reader.result,
+        name: input.value.slice(input.value.lastIndexOf('\\') + 1)
+      })
+      reader.onerror = reject
+      reader.readAsBinaryString(input.files[0])
+    }
+    input.addEventListener('change', read)
+  })
+
+    // for(var i = 0; i < table.length; i++){
+    //     if(table[i]['type'] == 'msg'){
+    //         var chatMassage = document.createElement("p");
+    //         chatMassage.innerText = table[i]['name'] + ': ' +table[i]['content'];
+    //         chatMassage.style.border = '3px solid';
+    //         document.getElementById('tables').appendChild(chatMassage);
+    //     }else if(table[i]['type'] == 'table'){
+    //         createInvestorTable();
+    //     }
+    // }
+}
+
+const head = ["#", "Check", "Name", "Cost"];
+const createThead = (parent) => {
+    var thead = document.createElement('thead');
+    parent.appendChild(thead);
+    var tr = document.createElement('tr');
+    thead.appendChild(tr);
+    for(var i = 0; i < head.length; i++)
+    {
+        var th = document.createElement('th');
+        th.scope ='col';
+        th.innerHTML = head[i];
+        tr.appendChild(th);
+    }
+}
+
+const data = [
+    ["Dildos", "300$"],
+    ["Umbrella handle", "150$"],
+    ["Stiff cocks", "200$"]
+]
+
+const createInvestorTable = () => {
+    var table = document.createElement('table');
+    document.getElementById('tables').appendChild(table);
+    table.className = "table";
+    
+    createThead(table);
+    
+    var tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+    for(var i = 0; i < data.length; i++) {
+        var tr = document.createElement('tr');
+        tbody.appendChild(tr);
+        var number = document.createElement('th');
+        number.innerHTML = i+1;
+        number.scope = 'row';
+        tr.appendChild(number);
+
+        var check = document.createElement('td');
+        var checkbox = document.createElement('input');
+        checkbox.className = "form-check-input mt-0";
+        checkbox.type = "checkbox";
+        checkbox.value = "";
+        checkbox.ariaLabel = "Checkbox for following text input";
+        check.appendChild(checkbox);
+        tr.appendChild(check);
+        
+        var name = document.createElement('td');
+        name.innerHTML = data[i][0];
+        tr.appendChild(name);
+
+        var cost = document.createElement('td');
+        cost.innerHTML = data[i][1];
+        tr.appendChild(cost);
+    }
+}
+
+
+
+// const results = [{ name: 'Investor', type: 'msg', content: '"ex"'},
+//                 { name: 'worker', type: 'table', content: '"ex.csv"'} ]
