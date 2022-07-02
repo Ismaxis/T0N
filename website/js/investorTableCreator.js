@@ -59,18 +59,18 @@ const createInvestorTable = () => {
     }
 }
 
-const results = [{ name: 'Investor', type: 'msg', content: '"ex"'},
-                { name: 'worker', type: 'table', content: '"ex.csv"'} ]
+const results = [];
 
 const createInvestorChat = () => {
+    results.push({name: 'Investor', type: 'msg', content: document.getElementById('user-massage').value});
     for(var i = 0; i < results.length; i++){
-        if(results[i]['type'] == 'msg'){
+        if(results[i]['content'] !== ''){
             var chatMassage = document.createElement("p");
+            chatMassage.style.fontSize = '20px';  
             chatMassage.innerText = results[i]['name'] + ': ' +results[i]['content'];
-            chatMassage.style.border = '3px solid';
-            document.getElementById('tables').appendChild(chatMassage);
-        }else if(results[i]['type'] == 'table'){
-            createInvestorTable();
+            document.getElementById('chatid').appendChild(chatMassage);
+            document.getElementById('user-massage').value = '';
         }
     }
+    results.shift();
 }
