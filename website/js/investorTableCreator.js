@@ -1,3 +1,7 @@
+window.onload = () => {
+    
+}
+
 const head = ["#", "Check", "Name", "Cost"];
 const createThead = (parent) => {
     var thead = document.createElement('thead');
