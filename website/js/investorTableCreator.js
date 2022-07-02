@@ -59,3 +59,18 @@ const createInvestorTable = () => {
     }
 }
 
+const results = [{ name: 'Investor', type: 'msg', content: '"ex"'},
+                { name: 'worker', type: 'table', content: '"ex.csv"'} ]
+
+const createInvestorChat = () => {
+    for(var i = 0; i < results.length; i++){
+        if(results[i]['type'] == 'msg'){
+            var chatMassage = document.createElement("p");
+            chatMassage.innerText = results[i]['name'] + ': ' +results[i]['content'];
+            chatMassage.style.border = '3px solid';
+            document.getElementById('tables').appendChild(chatMassage);
+        }else if(results[i]['type'] == 'table'){
+            createInvestorTable();
+        }
+    }
+}
