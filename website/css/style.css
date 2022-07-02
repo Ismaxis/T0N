@@ -24,3 +24,7 @@ body{
     word-break:break-all;
     overflow-y: auto;
 }
+
+body{
+    overflow: hidden;
+}
