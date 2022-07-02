@@ -14,3 +14,17 @@ body{
     padding-left: 50px;
     padding-right: 50px;
 }
+
+.investor-table{
+    height: 800px;
+    overflow-y: auto;
+}
+.chat-scroll{ 
+    height: 750px;
+    word-break:break-all;
+    overflow-y: auto;
+}
+
+body{
+    overflow: hidden;
+}
