@@ -12,27 +12,44 @@
     </head>
     <body>
         <%- include /parts/navbar -%>
-        <div class="main-content">
-            <div class="row">
-                <div class="col-8">
-                    <p class="h4">Tables</p>
-                    <div class="investor-table" id="table">
-                    </div>
-                    <div class="buttoms">
+        <div class="row justify-content-center">
+            <div class="marg-tables col-8">
+                <p class="h4">Tables</p>
+                <div class="investor-table border border-1" id="table">
+                </div>
+                <div class="form-height row">
+                    <div class="col-2 marg-col-10">
                         <button onclick="createWorkerTable()" type="button" class="btn btn-warning">Add new table</button>
+                    </div>
+                    <div class="col-3 marg-col-10">
                         <button type="button" class="btn btn-warning">Change table</button>
                     </div>
                 </div>
-                <div class="col-4">
-                    <p class="h4">Chat</p>
-                    <div class="chat-scroll" id="chatid">
-                    </div>
-                    <input class="form-control form-control-lg " type="text" placeholder="massage" aria-label=".form-control-lg example" id="worker-massage">
-                    <button type="button" class="btn btn-warning" onclick="createWorkerMassage()">Send massage</button>
+            </div>
+            <div class="col-4">
+                <p class="h4">Chat</p>
+                <div class="chat-scroll border border-1" id="chatid">
                 </div>
+                <div class="row">
+                    <div class="col-10 marg-col-10">
+                        <input class="form-control" autocomplete="off" type="text" placeholder="massage" aria-label=".form-control-lg example" id="worker-massage">
+                    </div>
+                    <div class="col-2 marg-col-10">
+                        <button type="button" class="btn btn-warning" onclick="createWorkerMassage()">Send</button>
+                    </div>
+                </div>
+                
             </div>
         </div>
-
+        <script>
+            document.onkeydown = function(e){
+                    e = e || window.event;
+                    var key = e.which || e.keyCode;
+                    if(key===13){
+                        createWorkerMassage();
+                    }
+            }
+    </script>
         <script src="js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

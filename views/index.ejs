@@ -46,15 +46,28 @@
         </div>
     </div> 
     <div>
-        <form action="/deploy" method="POST">
-            <input type="text" name="startbalance" placeholder="Enter investition"/>
-            <input type="checkbox" name="deploycheck"/>
-            <input type="submit" value="deploy"/>
-        </form>
-        <form action="/close" method="POST">
-            <input type="checkbox" name="closecheck"/>
-            <input type="submit" value="close"/>
-        </form>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-2">
+                <form action="/deploy" method="POST">
+                    <input type="text" name="startbalance" placeholder="Enter investition"/>
+                    <input class="form-check-input" type="checkbox" value="" name="deploycheck"/>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Confirm
+                    </label>
+                    <input class="btn btn-warning send-button apply-button-mrg" type="submit" value="deploy"/>
+                </form>
+            </div>
+            <div class="col-2">
+                <form action="/close" method="POST">
+                    <input class="form-check-input" type="checkbox" value="" name="closecheck"/>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Confirm
+                    </label>
+                    <input class="btn btn-warning send-button apply-button-mrg" type="submit" value="close"/>
+                </form>
+            </div>
+        </div>
     </div>
 
 </body>

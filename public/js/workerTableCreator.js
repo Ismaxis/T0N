@@ -86,8 +86,8 @@ const createWorkerMassage = () => {
     for(var i = 0; i < messages.length; i++){
         if(messages[i]['content'] !== ''){
             var chatMassage = document.createElement("p");
-            chatMassage.style.fontSize = '20px';  
-            chatMassage.innerText = messages[i]['name'] + ': ' +messages[i]['content'];
+            chatMassage.style.fontSize = '16px';  
+            chatMassage.innerText = results[i]['name'] + ': ' +results[i]['content'];
             document.getElementById('chatid').appendChild(chatMassage);
             document.getElementById('worker-massage').value = '';
         }
