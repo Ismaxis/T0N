@@ -31,35 +31,49 @@
                                                         </thead>
                                                         <tbody>
                                                                 <% for(var j=0; j<locals.tables[i].length; j++){ %>
-                                                                <tr>
-                                                                        <td class="number-row"><%= j+1 %></td>
-                                                                        <td>
-                                                                                <input class="form-check-input mt-0" type="checkbox"aria-label="Checkbox for following text input">
-                                                                        </td>
-                                                                        <% for(var h=0; h< 2; h++){ %>
-                                                                                <td><%= locals.tables[i][j][h] %></td>
-                                                                        <%}%>
-                                                                </tr>
+                                                                        <tr>
+                                                                                <td class="number-row">
+                                                                                        <%= j+1 %>
+                                                                                </td>
+                                                                                <td>
+                                                                                        <input class="form-check-input mt-0"
+                                                                                                type="checkbox"
+                                                                                                aria-label="Checkbox for following text input">
+                                                                                </td>
+                                                                                <% for(var h=0; h< 2; h++){ %>
+                                                                                        <td>
+                                                                                                <%= locals.tables[i][j][h]%>
+                                                                                        </td>
+                                                                                <%}%>
+                                                                        </tr>
                                                                 <%}%>
-                                                        
+
                                                         </tbody>
                                                 </table>
                                         <%}%>
-                                        
-                                </div>
-                                <div class="form-height row">
-                                        <div class="col-3 marg-col-10">
-                                                <button type="button" class="btn btn-warning"
-                                                        onclick="createInvestorTable()">Add(only for worker)</button>
+                                        <div
+                                                style="width: 100%; display: flex; justify-content: space-between;">
+                                                <form action="/addstate" method="POST"
+                                                        style="width: 100%; display: flex; justify-content: space-between;">
+                                                        <input type="submit" value="Pay"
+                                                                class="btn btn-warning"
+                                                                style="margin-top: 1px; margin-left: auto;"><input
+                                                                type="text" readonly="readonly"
+                                                                class="border rounded summary-bord"
+                                                                id="sum" name="amount"
+                                                                style="margin-left: 20px; margin-right: 5px;">
+                                                </form>
                                         </div>
                                 </div>
+
                         </div>
                         <div class="col-4">
 
                                 <p class="h4">Chat</p>
                                 <div class="chat-scroll border border-1" id="chatid">
                                         <% locals.messages.forEach(function(message){ %>
-                                                <p class=<%=message['name'] %>><%= message['name'] %>: <%= message['content'] %>
+                                                <p class=<%=message['name'] %>><%= message['name'] %>: <%=
+                                                                        message['content'] %>
                                                 </p>
                                                 <% }); %>
                                 </div>
