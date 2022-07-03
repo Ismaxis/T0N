@@ -1,34 +1,33 @@
 <!doctype html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Document</title>
         <script src="js/investorTableCreator.js"></script>
-    </head>
-    <body>
+        <title>Nutcrackers</title>
+</head>
+<body>
         <%- include /parts/navbar -%>
-
         <div class="row justify-content-start ">
-          <div class="col-8">
-              <p class="h4">Tables</p>
-              <div class="investor-table" id="tables">
-              </div>
-              <button type="button" class="btn btn-warning">Discuss</button>
-              <button type="button" class="btn btn-warning" onclick="createInvestorTable()">Add(only for worker)</button>
-          </div>
-          <div class="col-4">
-              <p class="h4">Chat</p>
-              <div class="chat-scroll" id="chatid">
-              </div>
-              <input class="form-control form-control-lg " type="text" placeholder="massage" aria-label=".form-control-lg example" id="user-massage">
-              <button type="button" class="btn btn-warning" onclick="createInvestorChat()">Send massage</button>
-          </div>
-      </div>
-  
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    </body>
-  </html>
+                <div class="col-8">
+                        <p class="h4">Tables</p>
+                        <div class="investor-table" id="tables">
+                        </div>
+                        <button type="button" class="btn btn-warning">Discuss</button>
+                        <button type="button" class="btn btn-warning" onclick="createInvestorTable()">Add(only for worker)</button>
+                </div>
+                <div class="col-4">
+                        <p class="h4">Chat</p>
+                        <div class="chat-scroll" id="chatid">
+                        </div>
+                        <input class="form-control form-control-lg " type="text" placeholder="massage" aria-label=".form-control-lg example" id="investor-massage">
+                        <button type="button" class="btn btn-warning" onclick="createInvestorMassage()">Send massage</button>
+                </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

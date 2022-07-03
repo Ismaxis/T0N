@@ -6,16 +6,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Document</title>
+        <script src="js/usersChat.js"></script>
         <script src="js/workerTableCreator.js"></script>
+        <title>Nutcrackers</title>
     </head>
     <body>
         <%- include /parts/navbar -%>
-
-        <div id="chat"></div>
-        <button onclick="createWorkerTable()" type="button" class="btn btn-warning">Add new table</button>
-        <button type="button" class="btn btn-warning">Change table</button>
+        <div class="main-content">
+            <div class="row">
+                <div class="col-8">
+                    <p class="h4">Tables</p>
+                    <div class="investor-table" id="table">
+                    </div>
+                    <div class="buttoms">
+                        <button onclick="createWorkerTable()" type="button" class="btn btn-warning">Add new table</button>
+                        <button type="button" class="btn btn-warning">Change table</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <p class="h4">Chat</p>
+                    <div class="chat-scroll" id="chatid">
+                    </div>
+                    <input class="form-control form-control-lg " type="text" placeholder="massage" aria-label=".form-control-lg example" id="worker-massage">
+                    <button type="button" class="btn btn-warning" onclick="createWorkerMassage()">Send massage</button>
+                </div>
+            </div>
+        </div>
 
         <script src="js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
+
