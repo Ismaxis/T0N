@@ -24,31 +24,35 @@ const createRow= (parent) => {
 
     var name = document.createElement('td');
     tr.appendChild(name);
-    var nameInput = document.createElement('input');
+    var nameInput = document.createElement('input'); //name
     name.appendChild(nameInput);
+    nameInput.name = `name${counter}`;
     nameInput.type = 'text';
     nameInput.className = "form-control";
 
     var cost = document.createElement('td');
     tr.appendChild(cost);
-    var nameInput = document.createElement('input');
+    var nameInput = document.createElement('input'); //cost
     cost.appendChild(nameInput);
+    nameInput.name = 'cost'+counter
     nameInput.type = 'text';
     nameInput.className = "form-control";
+    counter += 1;
 }
 
 var counter = 0;
 
 const createWorkerTable = () => {
-    if(counter != 0)
-    {
-        disablePrev(document.getElementById(counter - 1)); 
-    }
+    var form = document.createElement('form');
+    form.action = '/confirm_creating_table'
+    form.method = 'post'
+    form.id = 'form_table'
+    document.getElementById("table").appendChild(form);
     div = document.createElement('div');
     div.id = counter;
     div.style = "margin-bottom: 20px";
-    counter += 1;
-    document.getElementById("table").appendChild(div);
+    
+    form.appendChild(div);
     var table = document.createElement('table');
     div.appendChild(table);
     table.className = "table";
@@ -59,23 +63,20 @@ const createWorkerTable = () => {
 
     createRow(tbody);
 
-    var button = document.createElement('button');
-    div.appendChild(button);
-    button.innerHTML = "add row";
-    button.onclick = () => {
+    var button_confirm = document.createElement('input');
+    div.appendChild(button_confirm)
+    button_confirm.type = 'submit';
+    button_confirm.className = "btn btn-warning";
+    button_confirm.value = "confirm";
+
+    var button_add_row = document.createElement('button');
+    document.getElementById("table").appendChild(button_add_row);
+    button_add_row.innerHTML = "add row";
+    button_add_row.id = 'button_add_row'
+    button_add_row.onclick = () => {
         createRow(tbody);
     }
-    button.className = "btn btn-warning";
-}
-
-const disablePrev = (prev) => {
-    prev.lastChild.remove();
-    var arr = prev.firstChild.lastChild.childNodes;
-    console.log(arr);
-    for(var i = 0; i < arr.length; i++) {
-        arr[i].childNodes[1].firstChild.setAttribute('readonly', 'readonly');
-        arr[i].childNodes[2].firstChild.setAttribute('readonly', 'readonly');
-    }
+    button_add_row.className = "btn btn-warning";
 }
 
 

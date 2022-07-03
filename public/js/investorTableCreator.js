@@ -17,21 +17,7 @@ const createThead = (parent) => {
     }
 }
 
-const data = [ 
-[   ["Pens", "0.18"],
-    ["Coins", "0.5"]
-],
-[   
-    ["Pebbles", "5"]
-],
-[   
-    ["Dildos", "0.2"],
-    ["Umbrella hande", "0.5"],
-    ["Stiff cocks", "0.3"]
-]
-]
-
-const createInvestorTable = () => {
+function createInvestorTable (data) {
     for(var j = 0; j < data.length; j++) {
         var data2 = data[j];
         var table = document.createElement('table');

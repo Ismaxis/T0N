@@ -2,6 +2,7 @@ const express = require('express');
 const ton = require('./ton/tonFuncs');
 const csv = require('./scripts/csv-parse')
 const csv_append = require('./scripts/csv-append')
+const table_lib = require('./scripts/table')
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -23,7 +24,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/investor', (req, res) => {
-  res.render("investor", {messages: csv.messages()})
+  var tables = []
+  for (var i = 0; i < table_lib.last_table_num(); i++){
+    tables.push(table_lib.read(i));
+  }
+  console.log(tables)
+  res.render("investor", {messages: csv.messages(), tables: tables})
 });
 app.post('/investor_add_message', async (req, res) => {
   res.redirect('/investor');
@@ -31,11 +37,28 @@ app.post('/investor_add_message', async (req, res) => {
 });
 
 app.get('/worker', (req, res) => {
-  res.render("worker", {messages: csv.messages()})
+  var tables = []
+  for (var i = 0; i < table_lib.last_table_num(); i++){
+    tables.push(table_lib.read(i));
+  }
+  console.log(tables)
+  res.render("worker", {messages: csv.messages(), tables: tables})
 });
 app.post('/worker_add_message', async (req, res) => {
   res.redirect('/worker');
+  if (req.body.new_message!=''){
   csv_append.append("Worker", req.body.new_message);
+  }
+});
+app.post('/confirm_creating_table', async (req, res) => {
+  res.redirect('/worker');
+  var i=0
+  var table = []
+  while (eval(`req.body.name${i}`) != null){
+    eval(`table.push([req.body.cost${i}, req.body.name${i}])`)
+    i++
+  }
+  table_lib.append(table)
 });
 
 app.post('/deploy', async (req, res) => {

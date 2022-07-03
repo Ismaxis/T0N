@@ -5,4 +5,4 @@ module.exports = {
         file = fs.read('./tables/messages.csv')
         fs.write('./tables/messages.csv', file+'\n'+name+','+content)
     }
-} 
+}
