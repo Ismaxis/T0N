@@ -40,3 +40,33 @@ body{
 .marg-col-10{
     margin: 5px 0px;
 }
+
+.form-check-input{
+    margin: 13px 0px 0px 0px;
+}
+.form-check-label{
+    margin: 9px 0px 0px 0px;
+}
+
+.apply-button-mrg{
+    margin: 0px 0px 5px 0px;
+}
+
+.form-check-input{
+    border-color: #ffc107;
+}
+.form-check-input:checked{
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+.form-check-input:focus{
+    border-color:#ffc107;
+    outline:0;
+    box-shadow:0 0 0 0rem #ffc107;
+}
+.form-check-input:checked{
+    background-color:#ffc107;
+    border-color:#ffc107}
+.form-check-input:checked[type=checkbox]{
+    background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
+}
