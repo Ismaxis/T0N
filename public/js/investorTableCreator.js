@@ -1,34 +1,5 @@
-
-
-window.onload = () => {createInvestorChat()}
-
-const createInvestorChat = () => {
-    selector = "../tables/main.csv"
-
-    const input = document.querySelector(selector)
-  return new Promise((resolve, reject) => {
-    const read = e => {
-      const reader = new FileReader()
-      reader.onload = () => resolve({
-        contents: reader.result,
-        name: input.value.slice(input.value.lastIndexOf('\\') + 1)
-      })
-      reader.onerror = reject
-      reader.readAsBinaryString(input.files[0])
-    }
-    input.addEventListener('change', read)
-  })
-
-    // for(var i = 0; i < table.length; i++){
-    //     if(table[i]['type'] == 'msg'){
-    //         var chatMassage = document.createElement("p");
-    //         chatMassage.innerText = table[i]['name'] + ': ' +table[i]['content'];
-    //         chatMassage.style.border = '3px solid';
-    //         document.getElementById('tables').appendChild(chatMassage);
-    //     }else if(table[i]['type'] == 'table'){
-    //         createInvestorTable();
-    //     }
-    // }
+window.onload = () => {
+    
 }
 
 const head = ["#", "Check", "Name", "Cost"];
@@ -88,7 +59,18 @@ const createInvestorTable = () => {
     }
 }
 
+const results = [];
 
-
-// const results = [{ name: 'Investor', type: 'msg', content: '"ex"'},
-//                 { name: 'worker', type: 'table', content: '"ex.csv"'} ]
+const createInvestorChat = () => {
+    results.push({name: 'Investor', type: 'msg', content: document.getElementById('user-massage').value});
+    for(var i = 0; i < results.length; i++){
+        if(results[i]['content'] !== ''){
+            var chatMassage = document.createElement("p");
+            chatMassage.style.fontSize = '20px';  
+            chatMassage.innerText = results[i]['name'] + ': ' +results[i]['content'];
+            document.getElementById('chatid').appendChild(chatMassage);
+            document.getElementById('user-massage').value = '';
+        }
+    }
+    results.shift();
+}
