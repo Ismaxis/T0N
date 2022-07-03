@@ -82,9 +82,9 @@ const disablePrev = (prev) => {
 const results = [];
 
 const createWorkerMassage = () => {
-    results.push({name: 'Worker', content: document.getElementById('worker-massage').value});
-    for(var i = 0; i < results.length; i++){
-        if(results[i]['content'] !== ''){
+    messages.push({name: 'Worker', content: document.getElementById('worker-massage').value});
+    for(var i = 0; i < messages.length; i++){
+        if(messages[i]['content'] !== ''){
             var chatMassage = document.createElement("p");
             chatMassage.style.fontSize = '16px';  
             chatMassage.innerText = results[i]['name'] + ': ' +results[i]['content'];
@@ -92,5 +92,5 @@ const createWorkerMassage = () => {
             document.getElementById('worker-massage').value = '';
         }
     }
-    results.shift();
+    messages.shift();
 }

@@ -10,6 +10,7 @@
         <title>Nutcrackers</title>
 </head>
 <body>
+        
         <%- include /parts/navbar -%>
         <div class="row justify-content-center">
                 <div class="marg-tables col-8">
@@ -23,17 +24,17 @@
                         </div>
                 </div>
                 <div class="col-4">
+                        
                         <p class="h4">Chat</p>
-                        <div class="chat-scroll border border-1" id="chatid">
+                        <div class="chat-scroll" id="chatid">
+                                <% locals.messages.forEach(function(message){ %>
+                                        <p class=<%= message['name'] %>><%= message['name'] %>: <%= message['content'] %></p>
+                                <% }); %>
                         </div>
-                        <div class="row">
-                                <div class="col-10 marg-col-10">
-                                        <input class="form-control" autocomplete="off" type="text" placeholder="massage" aria-label=".form-control-lg example" id="investor-massage">
-                                </div>
-                                <div class="col-2 marg-col-10">
-                                        <button type="button" class="btn btn-warning send-button" onclick="createInvestorMassage()">Send</button>
-                                </div>
-                        </div>
+                        <form action="/investor_add_message" method="post">
+                                <input class="form-control form-control-lg " type="text" placeholder="message" name="new_message"aria-label=".form-control-lg example" id="investor-message">
+                                <input type="submit" class="btn btn-warning" onclick="createInvestorMessage()" value="Send message">
+                        </form>
                 </div>
         </div>
 

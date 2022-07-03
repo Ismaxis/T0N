@@ -37,6 +37,14 @@ body{
 .row{
     align-items: center;
 }
+
+.Investor{
+    background-color: #ffc107;
+}
+
+p {
+    margin: 0%;
+}
 .marg-col-10{
     margin: 5px 0px;
 }
