@@ -8,6 +8,7 @@ body{
     margin: 0px;
     min-height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 .text-marg{
@@ -16,15 +17,26 @@ body{
 }
 
 .investor-table{
-    height: 800px;
+    height: 750px;
     overflow-y: auto;
+}
+.marg-tables{
+    margin: 0px 0px 0px 1%;
 }
 .chat-scroll{ 
     height: 750px;
+    width: 96%;
     word-break:break-all;
     overflow-y: auto;
 }
+.col-8 {
+    flex: 0 0 auto;
+    width: 64.66666667%;
+}
 
-body{
-    overflow: hidden;
+.row{
+    align-items: center;
+}
+.form-height{
+    height: 48px;
 }
