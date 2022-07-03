@@ -1,0 +1,30 @@
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+}
+
+.text-marg{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.investor-table{
+    height: 800px;
+    overflow-y: auto;
+}
+.chat-scroll{ 
+    height: 750px;
+    word-break:break-all;
+    overflow-y: auto;
+}
+
+body{
+    overflow: hidden;
+}
