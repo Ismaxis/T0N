@@ -48,7 +48,7 @@ const createWorkerTable = () => {
     div.id = counter;
     div.style = "margin-bottom: 20px";
     counter += 1;
-    document.getElementById("chat").appendChild(div);
+    document.getElementById("table").appendChild(div);
     var table = document.createElement('table');
     div.appendChild(table);
     table.className = "table";
@@ -76,4 +76,21 @@ const disablePrev = (prev) => {
         arr[i].childNodes[1].firstChild.setAttribute('readonly', 'readonly');
         arr[i].childNodes[2].firstChild.setAttribute('readonly', 'readonly');
     }
+}
+
+
+const results = [];
+
+const createWorkerMassage = () => {
+    results.push({name: 'Worker', content: document.getElementById('worker-massage').value});
+    for(var i = 0; i < results.length; i++){
+        if(results[i]['content'] !== ''){
+            var chatMassage = document.createElement("p");
+            chatMassage.style.fontSize = '20px';  
+            chatMassage.innerText = results[i]['name'] + ': ' +results[i]['content'];
+            document.getElementById('chatid').appendChild(chatMassage);
+            document.getElementById('worker-massage').value = '';
+        }
+    }
+    results.shift();
 }
