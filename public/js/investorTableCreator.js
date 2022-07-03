@@ -1,6 +1,4 @@
-window.onload = () => {
-    
-}
+
 
 const head = ["#", "Check", "Name", "Cost"];
 const createThead = (parent) => {
@@ -58,19 +56,18 @@ const createInvestorTable = () => {
         tr.appendChild(cost);
     }
 }
-
-const results = [];
-
-const createInvestorMessage = () => {
-    results.push({name: 'Investor', content: document.getElementById('investor-message').value});
-    for(var i = 0; i < results.length; i++){
-        if(results[i]['content'] !== ''){
+messages = []
+const createInvestorMessage = async () => {
+    messages.push({name: 'Investor', content: document.getElementById('investor-message').value});
+    for(var i = 0; i < messages.length; i++){
+        if(messages[i]['content'] !== ''){
             var chatMessage = document.createElement("p");
-            chatMessage.style.fontSize = '20px';  
-            chatMessage.innerText = results[i]['name'] + ': ' +results[i]['content'];
+            chatMessage.className = messages[i]['name']
+            chatMessage.style.fontSize = '16px';  
+            chatMessage.innerText = messages[i]['name'] + ': ' +messages[i]['content'];
             document.getElementById('chatid').appendChild(chatMessage);
-            document.getElementById('investor-message').value = '';
+            setTimeout(()=>{document.getElementById('investor-message').value = ''}, 100);
         }
     }
-    results.shift();
+    messages.shift();
 }

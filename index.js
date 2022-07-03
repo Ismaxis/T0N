@@ -1,5 +1,7 @@
 const express = require('express');
 const ton = require('./ton/tonFuncs');
+const csv = require('./scripts/csv-parse')
+
 const app = express();
 const port = 3000;
 
@@ -17,7 +19,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/investor', (req, res) => {
-  res.render("investor")
+  res.render("investor", {messages: csv.messages})
+});
+app.post('/investor_add_message', async (req, res) => {
+  //res.redirect('/investor');
+  console.log(req.body.new_message);
 });
 
 app.get('/worker', (req, res) => {

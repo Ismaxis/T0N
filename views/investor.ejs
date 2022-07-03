@@ -10,6 +10,7 @@
         <title>Nutcrackers</title>
 </head>
 <body>
+        
         <%- include /parts/navbar -%>
         <div class="row justify-content-start ">
                 <div class="col-8">
@@ -20,11 +21,17 @@
                         <button type="button" class="btn btn-warning" onclick="createInvestorTable()">Add(only for worker)</button>
                 </div>
                 <div class="col-4">
+                        
                         <p class="h4">Chat</p>
                         <div class="chat-scroll" id="chatid">
+                                <% locals.messages.forEach(function(message){ %>
+                                        <p class=<%= message['name'] %>><%= message['name'] %>: <%= message['content'] %></p>
+                                <% }); %>
                         </div>
-                        <input class="form-control form-control-lg " type="text" placeholder="message" aria-label=".form-control-lg example" id="investor-message">
-                        <button type="button" class="btn btn-warning" onclick="createInvestorMessage()">Send message</button>
+                        <form action="/investor_add_message" method="post">
+                                <input class="form-control form-control-lg " type="text" placeholder="message" name="new_message"aria-label=".form-control-lg example" id="investor-message">
+                                <input type="submit" class="btn btn-warning" onclick="createInvestorMessage()" value="Send message">
+                        </form>
                 </div>
         </div>
 
