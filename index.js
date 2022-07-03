@@ -76,7 +76,7 @@ app.post('/confirm_creating_table', async (req, res) => {
   var i=0
   var table = []
   while (eval(`req.body.name${i}`) != null){
-    eval(`table.push([req.body.cost${i}, req.body.name${i}])`)
+    eval(`table.push([req.body.name${i}, req.body.cost${i}])`)
     i++
   }
   table_lib.append(table)

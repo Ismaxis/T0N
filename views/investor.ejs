@@ -38,12 +38,11 @@
                                                                                 <td>
                                                                                         <input class="form-check-input mt-0"
                                                                                                 type="checkbox"
-                                                                                                aria-label="Checkbox for following text input">
+                                                                                                aria-label="Checkbox for following text input"
+                                                                                                onchange="countSum()">
                                                                                 </td>
                                                                                 <% for(var h=0; h< 2; h++){ %>
-                                                                                        <td>
-                                                                                                <%= locals.tables[i][j][h]%>
-                                                                                        </td>
+                                                                                        <td><%= locals.tables[i][j][h]%></td>
                                                                                 <%}%>
                                                                         </tr>
                                                                 <%}%>

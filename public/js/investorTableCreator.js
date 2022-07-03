@@ -31,14 +31,15 @@ const createPayZone = () => {
 
 const countSum = () => {
     var table = document.getElementsByClassName('table-u');
-    table = table.item(table.length - 1).childNodes[1];
+    table = table.item(table.length - 1).childNodes[3];
     var sum = 0;
-    for(var i = 0; i < table.childNodes.length; i++)
+    
+    for(var i = 1; i < table.childNodes.length; i=i+2)
     {   
         var tr = table.childNodes[i];
-        if(tr.childNodes[1].childNodes[0].checked)
+        if(tr.childNodes[3].childNodes[1].checked)
         {   
-            sum += Number(tr.childNodes[3].innerHTML)
+            sum += Number(tr.childNodes[7].innerHTML)
         }
     }
     document.getElementById('sum').value = sum;
