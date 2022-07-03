@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <script src="js/usersChat.js"></script>
-        <script src="js/workerTableCreator.js"></script>
-        <title>Nutcrackers</title>
-    </head>
-    <body>
-        <%- include /parts/navbar -%>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/usersChat.js"></script>
+    <script src="js/workerTableCreator.js"></script>
+    <title>Nutcrackers</title>
+</head>
+
+<body>
+    <%- include /parts/navbar -%>
         <div class="row justify-content-center">
             <div class="marg-tables col-8">
                 <p class="h4">Tables</p>
@@ -19,7 +21,8 @@
                 </div>
                 <div class="form-height row">
                     <div class="col-2 marg-col-10">
-                        <button onclick="createWorkerTable()" type="button" class="btn btn-warning">Add new table</button>
+                        <button onclick="createWorkerTable()" type="button" class="btn btn-warning">Add new
+                            table</button>
                     </div>
                     <div class="col-3 marg-col-10">
                         <button type="button" class="btn btn-warning">Change table</button>
@@ -29,28 +32,36 @@
             <div class="col-4">
                 <p class="h4">Chat</p>
                 <div class="chat-scroll border border-1" id="chatid">
+                    <% locals.messages.forEach(function(message){ %>
+                        <p class=<%=message['name'] %>><%= message['name'] %>: <%= message['content'] %>
+                        </p>
+                        <% }); %>
                 </div>
-                <div class="row">
-                    <div class="col-10 marg-col-10">
-                        <input class="form-control" autocomplete="off" type="text" placeholder="massage" aria-label=".form-control-lg example" id="worker-massage">
+                <form action="/worker_add_message" method="post">
+                    <div class="row">
+                        <div class="col-10 marg-col-10">
+                            <input input class="form-control" autocomplete="off" type="text" placeholder="message"
+                                name="new_message" aria-label=".form-control-lg example" id="worker-message">
+                        </div>
+                        <div class="col-2 marg-col-10">
+                            <input type="submit" class="btn btn-warning send-button" onclick="createWorkerMessage()"
+                                value="Send">
+                        </div>
                     </div>
-                    <div class="col-2 marg-col-10">
-                        <button type="button" class="btn btn-warning" onclick="createWorkerMassage()">Send</button>
-                    </div>
-                </div>
-                
+                </form>
+
             </div>
         </div>
         <script>
-            document.onkeydown = function(e){
-                    e = e || window.event;
-                    var key = e.which || e.keyCode;
-                    if(key===13){
-                        createWorkerMassage();
-                    }
+            document.onkeydown = function (e) {
+                e = e || window.event;
+                var key = e.which || e.keyCode;
+                if (key === 13) {
+                    createWorkerMassage();
+                }
             }
-    </script>
+        </script>
         <script src="js/bootstrap.bundle.min.js"></script>
-    </body>
-</html>
+</body>
 
+</html>

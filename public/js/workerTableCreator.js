@@ -81,15 +81,16 @@ const disablePrev = (prev) => {
 
 const results = [];
 
-const createWorkerMassage = () => {
-    messages.push({name: 'Worker', content: document.getElementById('worker-massage').value});
+const createWorkerMessage = () => {
+    messages.push({name: 'Worker', content: document.getElementById('worker-message').value});
     for(var i = 0; i < messages.length; i++){
         if(messages[i]['content'] !== ''){
-            var chatMassage = document.createElement("p");
-            chatMassage.style.fontSize = '16px';  
-            chatMassage.innerText = results[i]['name'] + ': ' +results[i]['content'];
-            document.getElementById('chatid').appendChild(chatMassage);
-            document.getElementById('worker-massage').value = '';
+            var chatMessage = document.createElement("p");
+            chatMessage.className = messages[i]['name']
+            chatMessage.style.fontSize = '16px';  
+            chatMessage.innerText = results[i]['name'] + ': ' +results[i]['content'];
+            document.getElementById('chatid').appendChild(chatMessage);
+            setTimeout(()=>{document.getElementById('worker-massage').value = ''},100)
         }
     }
     messages.shift();

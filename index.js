@@ -1,10 +1,11 @@
 const express = require('express');
 const ton = require('./ton/tonFuncs');
 const csv = require('./scripts/csv-parse')
+const csv_append = require('./scripts/csv-append')
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
-const bodyParser = require('body-parser');
 
 var isDeployed = 0;
 var id = 0;
@@ -21,15 +22,19 @@ app.get('/', (req, res) => {
 });
 
 app.get('/investor', (req, res) => {
-  res.render("investor", {messages: csv.messages})
+  res.render("investor", {messages: csv.messages()})
 });
 app.post('/investor_add_message', async (req, res) => {
-  //res.redirect('/investor');
-  console.log(req.body.new_message);
+  res.redirect('/investor');
+  csv_append.append("Investor", req.body.new_message);
 });
 
 app.get('/worker', (req, res) => {
-  res.render("worker")
+  res.render("worker", {messages: csv.messages()})
+});
+app.post('/worker_add_message', async (req, res) => {
+  res.redirect('/worker');
+  csv_append.append("Worker", req.body.new_message);
 });
 
 app.post('/deploy', async (req, res) => {
