@@ -1,5 +1,5 @@
 window.onload = () => {
-    
+    createInvestorTable();
 }
 
 const head = ["#", "Check", "Name", "Cost"];
@@ -18,9 +18,9 @@ const createThead = (parent) => {
 }
 
 const data = [
-    ["Dildos", "300$"],
-    ["Umbrella handle", "150$"],
-    ["Stiff cocks", "200$"]
+    ["Dildos", "300"],
+    ["Umbrella handle", "150"],
+    ["Stiff cocks", "200"]
 ]
 
 const createInvestorTable = () => {
@@ -44,8 +44,9 @@ const createInvestorTable = () => {
         var checkbox = document.createElement('input');
         checkbox.className = "form-check-input mt-0";
         checkbox.type = "checkbox";
-        checkbox.value = "";
+        checkbox.checked = false;
         checkbox.ariaLabel = "Checkbox for following text input";
+        checkbox.onchange = () => {countSum()};
         check.appendChild(checkbox);
         tr.appendChild(check);
         
@@ -56,7 +57,50 @@ const createInvestorTable = () => {
         var cost = document.createElement('td');
         cost.innerHTML = data[i][1];
         tr.appendChild(cost);
+
     }
+    var payDiv = document.createElement('div');
+    document.getElementById('tables').appendChild(payDiv);
+    payDiv.style = "width: 100%; display: flex; justify-content: space-between;";
+
+    var form =  document.createElement('form');
+    payDiv.appendChild(form);
+    form.action='/addstate';
+    form.method="POST";
+    form.style =  "width: 100%; display: flex; justify-content: space-between;";
+    
+    
+    var button = document.createElement('input');
+    form.appendChild(button);
+    button.type="submit";
+    button.value='Pay';
+    button.innerHTML = 'pay';
+    button.className = "btn btn-warning";
+    button.style = "margin-top: 8px; margin-left:auto;";
+
+    var summary = document.createElement('input');
+    form.appendChild(summary);
+    summary.type = 'text';
+    summary.setAttribute('readonly', 'readonly');
+    summary.value = '0';
+    summary.style = "margin-top: 0px; margin-left:15%; margin-right: 0%; width:18%";
+    summary.id = 'sum';
+    summary.name = 'amount';
+}
+
+const countSum = () => {
+    var table = document.getElementsByClassName('table');
+    table = table.item(table.length - 1).childNodes[1];
+    var sum = 0;
+    for(var i = 0; i < table.childNodes.length; i++)
+    {   
+        var tr = table.childNodes[i];
+        if(tr.childNodes[1].childNodes[0].checked)
+        {   
+            sum += Number(tr.childNodes[3].innerHTML)
+        }
+    }
+    document.getElementById('sum').value = sum;
 }
 
 const results = [];
