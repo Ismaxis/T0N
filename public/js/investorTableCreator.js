@@ -17,48 +17,64 @@ const createThead = (parent) => {
     }
 }
 
-const data = [
-    ["Dildos", "300"],
-    ["Umbrella handle", "150"],
-    ["Stiff cocks", "200"]
+const data = [ 
+[   ["Pens", "0.18"],
+    ["Coins", "0.5"]
+],
+[   
+    ["Pebbles", "5"]
+],
+[   
+    ["Dildos", "0.2"],
+    ["Umbrella hande", "0.5"],
+    ["Stiff cocks", "0.3"]
+]
 ]
 
 const createInvestorTable = () => {
-    var table = document.createElement('table');
-    document.getElementById('tables').appendChild(table);
-    table.className = "table";
-    
-    createThead(table);
-    
-    var tbody = document.createElement('tbody');
-    table.appendChild(tbody);
-    for(var i = 0; i < data.length; i++) {
-        var tr = document.createElement('tr');
-        tbody.appendChild(tr);
-        var number = document.createElement('th');
-        number.innerHTML = i+1;
-        number.scope = 'row';
-        tr.appendChild(number);
-
-        var check = document.createElement('td');
-        var checkbox = document.createElement('input');
-        checkbox.className = "form-check-input mt-0";
-        checkbox.type = "checkbox";
-        checkbox.checked = false;
-        checkbox.ariaLabel = "Checkbox for following text input";
-        checkbox.onchange = () => {countSum()};
-        check.appendChild(checkbox);
-        tr.appendChild(check);
+    for(var j = 0; j < data.length; j++) {
+        var data2 = data[j];
+        var table = document.createElement('table');
+        document.getElementById('tables').appendChild(table);
+        table.className = "table";
         
-        var name = document.createElement('td');
-        name.innerHTML = data[i][0];
-        tr.appendChild(name);
-
-        var cost = document.createElement('td');
-        cost.innerHTML = data[i][1];
-        tr.appendChild(cost);
-
+        createThead(table);
+        
+        var tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+        for(var i = 0; i < data2.length; i++) {
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            var number = document.createElement('th');
+            number.innerHTML = i+1;
+            number.scope = 'row';
+            tr.appendChild(number);
+            
+            var check = document.createElement('td');
+            var checkbox = document.createElement('input');
+            checkbox.className = "form-check-input mt-0";
+            checkbox.type = "checkbox";
+            checkbox.checked = false;
+            checkbox.ariaLabel = "Checkbox for following text input";
+            checkbox.onchange = () => {countSum()};
+            check.appendChild(checkbox);
+            tr.appendChild(check);
+            
+            var name = document.createElement('td');
+            name.innerHTML = data2[i][0];
+            tr.appendChild(name);
+            
+            var cost = document.createElement('td');
+            cost.innerHTML = data2[i][1];
+            tr.appendChild(cost);
+            
+        }
     }
+    
+    createPayZone();
+}
+
+const createPayZone = () => {
     var payDiv = document.createElement('div');
     document.getElementById('tables').appendChild(payDiv);
     payDiv.style = "width: 100%; display: flex; justify-content: space-between;";
