@@ -20,7 +20,7 @@ var fromWalletA;
 var fromWalletB;
 
 var channelState = {
-    balanceA: toNano('2'),
+    balanceA: toNano('0'),
     balanceB: toNano('0'),
     seqnoA: new BN(0),
     seqnoB: new BN(0)
@@ -120,8 +120,10 @@ const setVars = async (id = -1) => {
 }
 
 
-module.exports.init = async () => {
+module.exports.init = async (balance) => { 
     
+    channelState.balanceA = toNano(balance.toString());
+
     newTsChannelId = await setVars();
 
     console.log('walletAddressA = ', walletAddressA.toString(true, true, true));
@@ -188,8 +190,8 @@ module.exports.addState = async (validState, balances, id) => {
     await setVars(id);
 
     const newState = {
-        balanceA: toNano(balances[0].toString()),
-        balanceB: toNano(balances[1].toString()),
+        balanceA: toNano(balances.balanceA.toString()),
+        balanceB: toNano(balances.balanceB.toString()),
         seqnoA: new BN(validState.seqnoA + 1),//*Number(isA)),
         seqnoB: new BN(validState.seqnoB + 1)//*Number(!isA))
     }
