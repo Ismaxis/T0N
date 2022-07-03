@@ -45,6 +45,20 @@
             </p>
         </div>
     </div> 
+    <div>
+        <form action="/deploy" method="POST">
+            <input type="checkbox" name="deploycheck"/>
+            <input type="submit" value="deploy"/>
+        </form>
+        <form action="/addstate" method="POST">
+            <input type="text" name="amount" placeholder="Enter investition"/>
+            <input type="submit" value="addstate"/>
+        </form>
+        <form action="/close" method="POST">
+            <input type="checkbox" name="closecheck"/>
+            <input type="submit" value="close"/>
+        </form>
+    </div>
 
 </body>
 </html>
