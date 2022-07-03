@@ -135,12 +135,22 @@ p {
 
 /*DIVs for index.ejs*/
 .index-form{
-    display: inline-block;
-    width: 350px;
-    margin: 0px 10px 0px 40px;
+    display: block;
+    width: 355px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .index-form-2{
-    display: inline-block;
-    width: 145px;
-    margin: 0px 10px 0px 40px;
+    display: block;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro{
+    font-size: x-large;
+}
+
+.descr{
+    font-size: larger;
 }
