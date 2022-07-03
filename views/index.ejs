@@ -13,57 +13,40 @@
     
     <%- include /parts/navbar -%>
 
-    <p class="fw-bolder text-center fs-1">Sample text</p>
-    <div class="row">
-        <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0 text-marg">
-            <p class="lh-base fs-3 text-center">
-                Investor
-            </p>
-            <p class="lh-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus illum corrupti hic nam, est quo voluptatum. 
-                Quia beatae unde obcaecati distinctio sunt magni? Quisquam quis placeat ex cumque accusamus id? 
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste pariatur dolorum sit, non eos qui in id 
-                animi molestias voluptatum officiis beatae fugit illum assumenda unde nihil? Dolorum, quod fugit.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus illum corrupti hic nam, est quo voluptatum. 
-                Quia beatae unde obcaecati distinctio sunt magni? Quisquam quis placeat ex cumque accusamus id? 
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste pariatur dolorum sit, non eos qui in id 
-                animi molestias voluptatum officiis beatae fugit illum assumenda unde nihil? Dolorum, quod fugit.
-            </p>
-        </div>
-        <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0 text-marg">
-            <p class="lh-base fs-3 text-center">
-                Worker
-            </p>
-            <p class="lh-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus illum corrupti hic nam, est quo voluptatum. 
-                Quia beatae unde obcaecati distinctio sunt magni? Quisquam quis placeat ex cumque accusamus id? 
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste pariatur dolorum sit, non eos qui in id 
-                animi molestias voluptatum officiis beatae fugit illum assumenda unde nihil? Dolorum, quod fugit.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus illum corrupti hic nam, est quo voluptatum. 
-                Quia beatae unde obcaecati distinctio sunt magni? Quisquam quis placeat ex cumque accusamus id? 
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste pariatur dolorum sit, non eos qui in id 
-                animi molestias voluptatum officiis beatae fugit illum assumenda unde nihil? Dolorum, quod fugit.
-            </p>
-        </div>
-    </div> 
+    <p class="fw-bolder text-center fs-1">TON Payment Channel Crowdfunding</p>
+    <P style="text-align: center;" class="intro">Hi! This project made by Nutcrackers team. We glad to see you on our website created for TON Contest 2022.</P>
+    <P style="text-align: center;" class="intro">This project is about using TON Payment Channels. In this case for crowdfundind platform.</P>
+    <P style="text-align: center;" class="intro">Code is avalible on <a href="https://github.com/Ismaxis/T0N">GitHub</a>. Please go and check out <a style="font-weight: bold;">README.MD.</a></P>
+    <P style="text-align: center;" class="intro">This is main page. Here you can deploy and close Payment Channel.</P>
+
+    <P style="text-align: center; margin-top: 40px;" class="descr"> Now imagine that you are Investor that found some pretty Worker and you want to start cooperation.</P>
+    <P style="text-align: center;" class="descr">First of all you need to deploy Payment Channel, to do this type maximum amount of Ton that you ready to spend on this project in.</P>
+    <div class="index-form">
+        <form action="/deploy" method="POST">
+            <input type="text" name="startbalance" placeholder="Type this amount here"/>
+            <input class="form-check-input" type="checkbox" value="" name="deploycheck"/>
+            <label class="form-check-label" for="flexCheckDefault">
+                Confirm
+            </label>
+            <input class="btn btn-warning send-button apply-button-mrg" type="submit" value="Deploy"/>
+        </form>
+    </div>
+    <P style="text-align: center;" class="descr">After click deploy please wait at least a minute to give smart contract enough for initialize.</P>
+    <P style="text-align: center;font-style: italic; color: gray; margin-top: 40px;" class="descr">In this example for Investor we always use wallet with address: EQBtuKXYoLoShFK9T_v4mr9OJX0B9LLKfMTjmAZMB4-b8oyE</P>
+    <P style="text-align: center;font-style: italic; color: gray;" class="descr">And for Worker with address: EQCCO9dTldignQMV0sWdzEUukMgU5k7MS7OTRhFnSlj12eay</P>
+    <P style="text-align: center;font-style: italic; color: gray;" class="descr">Plaese check ballances <a href="https://testnet.tonscan.org/">here</a> to make sure that there is enough money.</P>
+    
+    <P style="text-align: center;  margin-top: 40px;" class="descr">Now you can go to <a href="/investor">Investor-page</a> and <a href="/worker">Worker-page</a> to try it</P>
+    <P style="text-align: center;  margin-top: 40px;" class="descr">When you diside to end cooperation <a style='font-style: italic; color: gray;'>(or you get out of money)</a> you can close Channel with next button:</P>
     <div>
-        <div class="index-form">
-            <form action="/deploy" method="POST">
-                <input type="text" name="startbalance" placeholder="Enter investition"/>
-                <input class="form-check-input" type="checkbox" name="deploycheck"/>
-                <label class="form-check-label" for="flexCheckDefault">
-                    Confirm
-                </label>
-                <input class="btn btn-warning send-button apply-button-mrg" type="submit" value="deploy"/>
-            </form>
-        </div>
+        
         <div class="index-form-2">
             <form action="/close" method="POST">
                 <input class="form-check-input" type="checkbox"  name="closecheck"/>
                 <label class="form-check-label" for="flexCheckDefault">
                     Confirm
                 </label>
-                <input class="btn btn-warning send-button apply-button-mrg" type="submit" value="close"/>
+                <input class="btn btn-warning send-button apply-button-mrg" type="submit" value="Close"/>
             </form>
         </div>
     </div>
