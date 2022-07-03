@@ -28,7 +28,7 @@
                         </div>
                         <div class="row">
                                 <div class="col-10 marg-col-10">
-                                        <input class="form-control" type="text" placeholder="massage" aria-label=".form-control-lg example" id="investor-massage">
+                                        <input class="form-control" autocomplete="off" type="text" placeholder="massage" aria-label=".form-control-lg example" id="investor-massage">
                                 </div>
                                 <div class="col-2 marg-col-10">
                                         <button type="button" class="btn btn-warning send-button" onclick="createInvestorMassage()">Send</button>
@@ -37,6 +37,15 @@
                 </div>
         </div>
 
+        <script>
+                document.onkeydown = function(e){
+                        e = e || window.event;
+                        var key = e.which || e.keyCode;
+                        if(key===13){
+                                createInvestorMassage();
+                        }
+                }
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

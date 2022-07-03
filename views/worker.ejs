@@ -32,7 +32,7 @@
                 </div>
                 <div class="row">
                     <div class="col-10 marg-col-10">
-                        <input class="form-control" type="text" placeholder="massage" aria-label=".form-control-lg example" id="worker-massage">
+                        <input class="form-control" autocomplete="off" type="text" placeholder="massage" aria-label=".form-control-lg example" id="worker-massage">
                     </div>
                     <div class="col-2 marg-col-10">
                         <button type="button" class="btn btn-warning" onclick="createWorkerMassage()">Send</button>
@@ -41,7 +41,15 @@
                 
             </div>
         </div>
-
+        <script>
+            document.onkeydown = function(e){
+                    e = e || window.event;
+                    var key = e.which || e.keyCode;
+                    if(key===13){
+                        createWorkerMassage();
+                    }
+            }
+    </script>
         <script src="js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
