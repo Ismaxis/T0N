@@ -1,4 +1,4 @@
-# Crowdfunding on TON Payment Channel
+# TON Payment Channel Crowdfunding
 Created by Nutcrackers on **TON Contest** 2022
 
 ## Main idea
