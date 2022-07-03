@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,51 +11,102 @@
         <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5559/5559919.png" type="image/x-icon" />
         <title>Nutcrackers</title>
 </head>
-<body>
-        
-        <%- include /parts/navbar -%>
-        <div class="row justify-content-center">
-                <div class="marg-tables col-8">
-                        <p class="h4">Tables</p>
-                        <div class="investor-table border border-1" id="tables">
-                        </div>
-                        <div class="form-height row">
-                                <div class="col-3 marg-col-10">
-                                        <button type="button" class="btn btn-warning" onclick="createInvestorTable()">Add(only for worker)</button>
-                                </div>
-                        </div>
-                </div>
-                <div class="col-4">
-                        
-                        <p class="h4">Chat</p>
-                        <div class="chat-scroll border border-1" id="chatid">
-                                <% locals.messages.forEach(function(message){ %>
-                                        <p class=<%= message['name'] %>><%= message['name'] %>: <%= message['content'] %></p>
-                                <% }); %>
-                        </div>
-                        <form action="/investor_add_message" method="post">
-                                <div class="row">
-                                        <div class="col-10 marg-col-10">
-                                                <input input class="form-control" autocomplete="off"  type="text" placeholder="message" name="new_message" aria-label=".form-control-lg example" id="investor-message">
-                                        </div>
-                                        <div class="col-2 marg-col-10">
-                                                
-                                                <input type="submit" class="btn btn-warning send-button" onclick="createInvestorMessage()" value="Send">
-                                        </div>
-                                </div>
-                        </form>
-                </div>
-        </div>
 
-        <script>
-                document.onkeydown = function(e){
-                        e = e || window.event;
-                        var key = e.which || e.keyCode;
-                        if(key===13){
-                                createInvestorMassage();
+<body>
+
+        <%- include /parts/navbar -%>
+                <div class="row justify-content-center">
+                        <div class="marg-tables col-8">
+                                <p class="h4">Tables</p>
+                                <div class="investor-table border border-1" id="tables">
+                                        <% for (var i=0; i<locals.tables.length; i++){ %>
+                                                <table class="table-u">
+                                                        <thead>
+                                                                <tr>
+                                                                        <th>#</th>
+                                                                        <th>Check</th>
+                                                                        <th>Name</th>
+                                                                        <th>Cost</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <% for(var j=0; j<locals.tables[i].length; j++){ %>
+                                                                        <tr>
+                                                                                <td class="number-row">
+                                                                                        <%= j+1 %>
+                                                                                </td>
+                                                                                <td>
+                                                                                        <input class="form-check-input mt-0"
+                                                                                                type="checkbox"
+                                                                                                aria-label="Checkbox for following text input">
+                                                                                </td>
+                                                                                <% for(var h=0; h< 2; h++){ %>
+                                                                                        <td>
+                                                                                                <%= locals.tables[i][j][h]%>
+                                                                                        </td>
+                                                                                <%}%>
+                                                                        </tr>
+                                                                <%}%>
+
+                                                        </tbody>
+                                                </table>
+                                        <%}%>
+                                        <div
+                                                style="width: 100%; display: flex; justify-content: space-between;">
+                                                <form action="/addstate" method="POST"
+                                                        style="width: 100%; display: flex; justify-content: space-between;">
+                                                        <input type="submit" value="Pay"
+                                                                class="btn btn-warning"
+                                                                style="margin-top: 1px; margin-left: auto;"><input
+                                                                type="text" readonly="readonly"
+                                                                class="border rounded summary-bord"
+                                                                id="sum" name="amount"
+                                                                style="margin-left: 20px; margin-right: 5px;">
+                                                </form>
+                                        </div>
+                                </div>
+
+                        </div>
+                        <div class="col-4">
+
+                                <p class="h4">Chat</p>
+                                <div class="chat-scroll border border-1" id="chatid">
+                                        <% locals.messages.forEach(function(message){ %>
+                                                <p class=<%=message['name'] %>><%= message['name'] %>: <%=
+                                                                        message['content'] %>
+                                                </p>
+                                                <% }); %>
+                                </div>
+                                <form action="/investor_add_message" method="post">
+                                        <div class="row">
+                                                <div class="col-10 marg-col-10">
+                                                        <input input class="form-control" autocomplete="off" type="text"
+                                                                placeholder="message" name="new_message"
+                                                                aria-label=".form-control-lg example"
+                                                                id="investor-message">
+                                                </div>
+                                                <div class="col-2 marg-col-10">
+
+                                                        <input type="submit" class="btn btn-warning send-button"
+                                                                onclick="createInvestorMessage()" value="Send">
+                                                </div>
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+
+                <script>
+                        document.onkeydown = function (e) {
+                                e = e || window.event;
+                                var key = e.which || e.keyCode;
+                                if (key === 13) {
+                                        createInvestorMassage();
+                                }
                         }
-                }
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                        crossorigin="anonymous"></script>
 </body>
+
 </html>

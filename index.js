@@ -19,9 +19,16 @@ app.use(bodyParser.json())
 
 app.set('view engine', "ejs")
 
+
 app.get('/', (req, res) => {
   res.render("index")
 });
+
+/*
+--------------------------------------------------------------------------------
+investor
+--------------------------------------------------------------------------------
+*/
 
 app.get('/investor', (req, res) => {
   var tables = []
@@ -29,12 +36,21 @@ app.get('/investor', (req, res) => {
     tables.push(table_lib.read(i));
   }
   console.log(tables)
-  res.render("investor", {messages: csv.messages(), tables: tables})
+  res.render("investor", {messages: csv.messages(), 
+  tables: tables, 
+  page: req.url})
 });
+
 app.post('/investor_add_message', async (req, res) => {
   res.redirect('/investor');
   csv_append.append("Investor", req.body.new_message);
 });
+
+/*
+--------------------------------------------------------------------------------
+worker
+--------------------------------------------------------------------------------
+*/
 
 app.get('/worker', (req, res) => {
   var tables = []
@@ -42,14 +58,19 @@ app.get('/worker', (req, res) => {
     tables.push(table_lib.read(i));
   }
   console.log(tables)
-  res.render("worker", {messages: csv.messages(), tables: tables})
+  res.render("worker", {
+    messages: csv.messages(), 
+    tables: tables, 
+    page: req.url})
 });
+
 app.post('/worker_add_message', async (req, res) => {
   res.redirect('/worker');
   if (req.body.new_message!=''){
   csv_append.append("Worker", req.body.new_message);
   }
 });
+
 app.post('/confirm_creating_table', async (req, res) => {
   res.redirect('/worker');
   var i=0
@@ -60,6 +81,12 @@ app.post('/confirm_creating_table', async (req, res) => {
   }
   table_lib.append(table)
 });
+
+/*
+--------------------------------------------------------------------------------
+crypto http
+--------------------------------------------------------------------------------
+*/
 
 app.post('/deploy', async (req, res) => {
   res.redirect('/');
