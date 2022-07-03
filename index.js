@@ -4,6 +4,7 @@ const csv = require('./scripts/csv-parse')
 
 const app = express();
 const port = 3000;
+const bodyParser = require('body-parser');
 
 var isDeployed = 0;
 var id = 0;
@@ -11,6 +12,7 @@ var validState = null;
 
 app.use(express.static('public'))
 app.use(express.urlencoded());
+app.use(bodyParser.json())
 
 app.set('view engine', "ejs")
 
@@ -42,7 +44,7 @@ app.post('/deploy', async (req, res) => {
 });
 
 app.post('/addstate', async (req, res) => {
-  res.redirect('/');
+  res.redirect('/investor');
   var amount = Number(req.body.amount);
   if(amount != 0 && Number.isInteger(amount)) {
     if(isDeployed == 1)
