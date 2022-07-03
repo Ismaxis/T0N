@@ -61,15 +61,15 @@ const createInvestorTable = () => {
 
 const results = [];
 
-const createInvestorMassage = () => {
-    results.push({name: 'Investor', content: document.getElementById('investor-massage').value});
+const createInvestorMessage = () => {
+    results.push({name: 'Investor', content: document.getElementById('investor-message').value});
     for(var i = 0; i < results.length; i++){
         if(results[i]['content'] !== ''){
-            var chatMassage = document.createElement("p");
-            chatMassage.style.fontSize = '20px';  
-            chatMassage.innerText = results[i]['name'] + ': ' +results[i]['content'];
-            document.getElementById('chatid').appendChild(chatMassage);
-            document.getElementById('investor-massage').value = '';
+            var chatMessage = document.createElement("p");
+            chatMessage.style.fontSize = '20px';  
+            chatMessage.innerText = results[i]['name'] + ': ' +results[i]['content'];
+            document.getElementById('chatid').appendChild(chatMessage);
+            document.getElementById('investor-message').value = '';
         }
     }
     results.shift();
