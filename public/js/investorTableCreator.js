@@ -12,7 +12,6 @@ const createThead = (parent) => {
     for(var i = 0; i < head.length; i++)
     {
         var th = document.createElement('th');
-        th.scope ='col';
         th.innerHTML = head[i];
         tr.appendChild(th);
     }
@@ -23,8 +22,7 @@ function createInvestorTable (data) {
         var data2 = data[j];
         var table = document.createElement('table');
         document.getElementById('tables').appendChild(table);
-        table.className = "table";
-        
+        table.className = 'table-u';
         createThead(table);
         
         var tbody = document.createElement('tbody');
@@ -32,9 +30,9 @@ function createInvestorTable (data) {
         for(var i = 0; i < data2.length; i++) {
             var tr = document.createElement('tr');
             tbody.appendChild(tr);
-            var number = document.createElement('th');
+            var number = document.createElement('td');
             number.innerHTML = i+1;
-            number.scope = 'row';
+            number.className = 'number-row';
             tr.appendChild(number);
             
             var check = document.createElement('td');
@@ -79,20 +77,21 @@ const createPayZone = () => {
     button.value='Pay';
     button.innerHTML = 'pay';
     button.className = "btn btn-warning";
-    button.style = "margin-top: 8px; margin-left:auto;";
+    button.style = "margin-top: 1px; margin-left:auto;";
 
     var summary = document.createElement('input');
     form.appendChild(summary);
     summary.type = 'text';
     summary.setAttribute('readonly', 'readonly');
     summary.value = '0';
-    summary.style = "margin-top: 0px; margin-left:15%; margin-right: 0%; width:18%";
+    summary.style = "margin-left:20px; margin-right: 5px; width:38;";
+    summary.className = "border rounded summary-bord";
     summary.id = 'sum';
     summary.name = 'amount';
 }
 
 const countSum = () => {
-    var table = document.getElementsByClassName('table');
+    var table = document.getElementsByClassName('table-u');
     table = table.item(table.length - 1).childNodes[1];
     var sum = 0;
     for(var i = 0; i < table.childNodes.length; i++)

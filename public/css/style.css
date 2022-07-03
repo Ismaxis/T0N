@@ -78,3 +78,69 @@ p {
 .form-check-input:checked[type=checkbox]{
     background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
 }
+
+
+.form-control:focus{
+    color:#212529;
+    background-color:#fff;
+    border-color: #ffc10799;
+    outline:0;
+    box-shadow:0 0 0 .25rem #ffc10744;
+}
+.summary-bord:focus{
+    transition: all 0.3s;
+    color:#212529;
+    background-color:#fff;
+    border-color: #ffc10799;
+    outline:0;
+    box-shadow:0 0 0 .25rem #ffc10744;
+}
+
+/*TABLES for js*/
+/*size*/
+.table-u{
+    width: 100%;
+    margin: 0px 0px 25px 0px;
+}
+.table-u th, .table-u td{
+    text-align: center;
+    width: 25%;
+    height: 50px;
+}
+.number-row{
+    width: 25%;
+}
+
+/*color*/
+.table-u th{
+    background-color: #ffc107;
+}
+
+/*selection row*/
+.table-u tr{
+    transition: all 0.3s;
+}
+.table-u tr:hover{
+    background-color: #ffc10799;
+}
+
+/*borders*/
+.table-u td:not(:last-child){
+    border-right: 1px solid #dee2e6;
+}
+.table-u td{
+    border-bottom: 1px solid #dee2e6;
+}
+
+
+/*DIVs for index.ejs*/
+.index-form{
+    display: inline-block;
+    width: 350px;
+    margin: 0px 10px 0px 40px;
+}
+.index-form-2{
+    display: inline-block;
+    width: 145px;
+    margin: 0px 10px 0px 40px;
+}
