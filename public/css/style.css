@@ -37,6 +37,6 @@ body{
 .row{
     align-items: center;
 }
-.form-height{
-    height: 48px;
+.marg-col-10{
+    margin: 5px 0px;
 }
