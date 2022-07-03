@@ -18,6 +18,32 @@
             <div class="marg-tables col-8">
                 <p class="h4">Tables</p>
                 <div class="investor-table border border-1" id="table">
+                    <% for (var i=0; i<locals.tables.length; i++){ %>
+                        <table class="table-u">
+                                <thead>
+                                        <tr>
+                                                <th>#</th>
+                                                <th>Check</th>
+                                                <th>Name</th>
+                                                <th>Cost</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <% for(var j=0; j<locals.tables[i].length; j++){ %>
+                                        <tr>
+                                                <td class="number-row"><%= j+1 %></td>
+                                                <td>
+                                                        <input class="form-check-input mt-0" type="checkbox"aria-label="Checkbox for following text input">
+                                                </td>
+                                                <% for(var h=0; h< 2; h++){ %>
+                                                        <td><%= locals.tables[i][j][h] %></td>
+                                                <%}%>
+                                        </tr>
+                                        <%}%>
+                                
+                                </tbody>
+                        </table>
+                    <%}%>
                 </div>
                 <div class="form-height row">
                     <div class="col-2 marg-col-10">
